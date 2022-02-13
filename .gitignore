@@ -1,0 +1,6 @@
+.env
+.idea
+goturn.prototxt
+goturn.caffemodel
+resources
+recording
