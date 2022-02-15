@@ -43,13 +43,13 @@ if not ok:
 print('[INFO] video loaded and frame capture started')
 
 # set recording parameter
-# frame_width = int(video.get(cv2.CAP_PROP_FRAME_WIDTH))
-# frame_height = int(video.get(cv2.CAP_PROP_FRAME_HEIGHT))
-# fps = int(video.get(cv2.CAP_PROP_FPS))
-# video_codec = cv2.VideoWriter_fourcc('m', 'p', '4', 'v')
-# prefix = 'recording/'+datetime.datetime.now().strftime("%y%m%d_%H%M%S")
-# basename = "object_track.mp4"
-# video_output = cv2.VideoWriter("_".join([prefix, basename]), video_codec, fps, (frame_width, frame_height))
+frame_width = int(video.get(cv2.CAP_PROP_FRAME_WIDTH))
+frame_height = int(video.get(cv2.CAP_PROP_FRAME_HEIGHT))
+fps = int(video.get(cv2.CAP_PROP_FPS))
+video_codec = cv2.VideoWriter_fourcc('m', 'p', '4', 'v')
+prefix = 'recording/'+datetime.datetime.now().strftime("%y%m%d_%H%M%S")
+basename = "object_track.mp4"
+video_output = cv2.VideoWriter("_".join([prefix, basename]), video_codec, fps, (frame_width, frame_height))
 
 
 #########################################################################################################
@@ -89,7 +89,7 @@ while True:
         cv2.rectangle(frame, (x, y), (x+w, y+h), colours, 3)
         cv2.putText(frame, 'GOTURN', (10, 30), cv2.QT_FONT_NORMAL, 1, (255, 255, 255))
         # record object track
-        # video_output.write(frame)
+        video_output.write(frame)
 
     else:
         # if prediction failed and no bounding box coordinates are available
